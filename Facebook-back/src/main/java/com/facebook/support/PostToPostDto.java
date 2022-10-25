@@ -13,6 +13,9 @@ import com.facebook.model.Post;
 @Component
 public class PostToPostDto implements Converter<Post, PostDTO> {
 
+	@Autowired
+	private LikeDislikeToLikeDislikeDto toLikeDislikeDto;
+	
 	@Override
 	public PostDTO convert(Post s) {
 		PostDTO dto = new PostDTO();
@@ -20,8 +23,7 @@ public class PostToPostDto implements Converter<Post, PostDTO> {
 		dto.setId(s.getId());
 		dto.setDateTime(s.getDateTime());
 		dto.setDescription(s.getDescription());
-		dto.setLikesNumber(s.getLikesNumber());
-		dto.setDislikesNumber(s.getDislikesNumber());
+		dto.setLikesDislikes(toLikeDislikeDto.convert(s.getLikesDislikes()));
 		dto.setPicturePath(s.getPicturePath());
 		dto.setVideoPath(s.getVideoPath());
 		dto.setViews(s.getViews());

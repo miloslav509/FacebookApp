@@ -18,7 +18,7 @@ public class PostDtoToPost implements Converter<PostDTO, Post> {
 	private PostService service;
 	
 	@Autowired
-	private UserService userService;
+	private LikeDislikeDtoToLikeDislike toLikeDislike;
 
 	@Override
 	public Post convert(PostDTO dto) {
@@ -34,8 +34,7 @@ public class PostDtoToPost implements Converter<PostDTO, Post> {
 			
 			post.setDateTime(LocalDateTime.now().toString());
 			post.setDescription(dto.getDescription());
-			post.setLikesNumber(dto.getLikesNumber());
-			post.setDislikesNumber(dto.getDislikesNumber());
+			post.setLikesDislikes(toLikeDislike.convert(dto.getLikesDislikes()));
 			post.setPicturePath(dto.getPicturePath());
 			post.setVideoPath(dto.getVideoPath());
 			post.setViews(dto.getViews());

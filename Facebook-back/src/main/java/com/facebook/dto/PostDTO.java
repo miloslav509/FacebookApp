@@ -16,13 +16,7 @@ public class PostDTO {
 	
 	private String username;
 	
-	private List<UserDTO> likes;
-	
-	private List<UserDTO> dislikes;
-	
-	private int likesNumber;
-	
-	private int dislikesNumber;
+	private List<LikeDislikeDTO> likesDislikes;
 	
 	private int views;
 
@@ -74,36 +68,12 @@ public class PostDTO {
 		this.username = username;
 	}
 
-	public List<UserDTO> getLikes() {
-		return likes;
+	public List<LikeDislikeDTO> getLikesDislikes() {
+		return likesDislikes;
 	}
 
-	public void setLikes(List<UserDTO> likes) {
-		this.likes = likes;
-	}
-
-	public List<UserDTO> getDislikes() {
-		return dislikes;
-	}
-
-	public void setDislikes(List<UserDTO> dislikes) {
-		this.dislikes = dislikes;
-	}
-
-	public int getLikesNumber() {
-		return likesNumber;
-	}
-
-	public void setLikesNumber(int likesNumber) {
-		this.likesNumber = likesNumber;
-	}
-
-	public int getDislikesNumber() {
-		return dislikesNumber;
-	}
-
-	public void setDislikesNumber(int dislikesNumber) {
-		this.dislikesNumber = dislikesNumber;
+	public void setLikesDislikes(List<LikeDislikeDTO> likesDislikes) {
+		this.likesDislikes = likesDislikes;
 	}
 
 	public int getViews() {
