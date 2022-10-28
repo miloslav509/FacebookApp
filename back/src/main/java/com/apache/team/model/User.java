@@ -28,11 +28,6 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 	
-	@Column(nullable = false)
-	private String firstName;
-	
-	@Column(nullable = false)
-	private String lastName;
 	
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<LikeDislike> likesDislikes = new ArrayList<>();
@@ -46,8 +41,6 @@ public class User {
 		this.id = id;
 		this.username = username;
 		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
 	}
 
 	public Long getId() {
@@ -74,21 +67,6 @@ public class User {
 		this.password = password;
 	}
 
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
 
 	public List<LikeDislike> getLikesDislikes() {
 		return likesDislikes;
@@ -100,7 +78,7 @@ public class User {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(firstName, id, lastName, likesDislikes, password, username);
+		return Objects.hash(id, likesDislikes, password, username);
 	}
 
 	@Override
@@ -112,16 +90,17 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return Objects.equals(firstName, other.firstName) && Objects.equals(id, other.id)
-				&& Objects.equals(lastName, other.lastName) && Objects.equals(likesDislikes, other.likesDislikes)
+		return Objects.equals(id, other.id) && Objects.equals(likesDislikes, other.likesDislikes)
 				&& Objects.equals(password, other.password) && Objects.equals(username, other.username);
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", likesDislikes=" + likesDislikes + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", likesDislikes="
+				+ likesDislikes + "]";
 	}
+
+	
 	
 	
 	

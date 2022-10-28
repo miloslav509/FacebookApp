@@ -1,0 +1,20 @@
+<div class="card" style="border: 1px solid lightgray">
+    <div class="card-header">
+        <h2>{{postInfo.username}}</h2><span style="color: lightgray">{{postInfo.date}}</span>
+        
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <b><p>{{postInfo.description}}</p></b>
+        
+        <img src={{postInfo.picturePath}} width={150} height={150} />
+        </blockquote>
+        
+       
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-secondary" style="float: left; margin-left: 1%;" [routerLink]="['/post', postInfo.id]">Check post</a>
+        <a *ngIf="username === postInfo.username" class="btn btn-danger" style="float: right" (click)="deletePost(postInfo.id)">Delete post</a>
+    </div>
+</div>
+<br>
