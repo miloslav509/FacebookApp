@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-comment-list',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comment-list.component.css']
 })
 export class CommentListComponent implements OnInit {
+  
+  
+  @Input() comments: Comment[];
+  
 
-  constructor() { }
+  constructor(private appService: AppService, private route: ActivatedRoute) { 
+    this.comments = [];
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    console.log(this.comments);
   }
 
 }
