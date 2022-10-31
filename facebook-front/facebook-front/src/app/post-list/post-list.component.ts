@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
-import { Post } from '../common.models';
+import { Page, Post } from '../common.models';
 
 @Component({
   selector: 'app-post-list',
@@ -10,6 +10,9 @@ import { Post } from '../common.models';
 export class PostListComponent implements OnInit {
 
   public posts: Post[];
+
+  public totalPages: number = 0;
+  public pageNo: number = 0;
 
   constructor(private appService: AppService) { 
     this.posts = [];
@@ -21,6 +24,20 @@ export class PostListComponent implements OnInit {
   }
 
   getPosts() {
-     this.appService.getPosts().subscribe(res => {this.posts = res.content})
+     this.appService.getPostsPage(this.pageNo)
+     .subscribe(res => {this.posts = res.content, this.totalPages = res.totalPages});
+     console.log(this.totalPages);
+  }
+
+  changePage(page: Page) {
+    console.log(page);
+    if (page == 0) {
+      this.pageNo = this.pageNo - 1;
+    } else {
+      this.pageNo = this.pageNo + 1;
+    }
+    console.log(this.pageNo);
+    this.getPosts();
+
   }
 }

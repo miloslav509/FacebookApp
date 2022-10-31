@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import com.apache.team.dto.PostDTO;
 import com.apache.team.model.Post;
 import com.apache.team.service.PostService;
+import com.apache.team.service.UserService;
 
 
 
@@ -17,6 +18,9 @@ public class PostDtoToPost implements Converter<PostDTO, Post> {
 
 	@Autowired
 	private PostService service;
+	
+	@Autowired
+	private UserService userService;
 	
 	@Autowired
 	private LikeDislikeDtoToLikeDislike toLikeDislike;
@@ -39,6 +43,7 @@ public class PostDtoToPost implements Converter<PostDTO, Post> {
 			post.setPicturePath(dto.getPicturePath());
 			post.setVideoPath(dto.getVideoPath());
 			post.setViews(dto.getViews());
+			post.setUser(userService.findByUsername(dto.getUsername()));
 		}
 		
 		return post;

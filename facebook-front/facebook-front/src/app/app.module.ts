@@ -11,6 +11,8 @@ import { PostListComponent } from './post-list/post-list.component';
 import { PostPreviewComponent } from './post-preview/post-preview.component';
 import { HomeComponent } from './home/home.component';
 import { CreatePostComponent } from './create-post/create-post.component';
+import { CommentListComponent } from './comment-list/comment-list.component';
+import { CreateCommentComponent } from './create-comment/create-comment.component';
 
 
 const appRoutes: Routes = [
@@ -28,6 +30,8 @@ const appRoutes: Routes = [
     PostPreviewComponent,
     HomeComponent,
     CreatePostComponent,
+    CommentListComponent,
+    CreateCommentComponent,
   ],
   imports: [
     BrowserModule,

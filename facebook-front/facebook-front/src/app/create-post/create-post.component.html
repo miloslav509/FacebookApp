@@ -1,1 +1,18 @@
-<p>create-post works!</p>
+<div class="card" style="border: 1px solid lightgray">
+    <div class="card-header">
+        Add new post
+    </div>
+    <div class="card-body">
+        <form>
+            <label><b>Post text:</b></label>
+            <input class="form-control" name="input-description" [(ngModel)]="newPost.description">
+            <label><b>Picture:</b></label>
+            <input class="form-control" name="input-picturePath" [(ngModel)]="newPost.picturePath">
+            <br>
+            <!--label class="form-label"><b>Attach media</b></label>
+            <input class="form-control-file" type="file"-->
+            <br>
+            <button class="btn btn-secondary" (click)="addPost()">Post</button>
+        </form>
+    </div>
+</div>

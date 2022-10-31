@@ -6,4 +6,5 @@ public interface UserService {
 
 	public User findOne(String username, String password);
 	public User findById(Long id);
+	public User findByUsername(String username);
 }

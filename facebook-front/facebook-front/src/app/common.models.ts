@@ -1,23 +1,25 @@
 export interface PostInterface {
     id?: number;
     description: string;
-    username: string;
+    username: any;
     videoPath?: string;
     picturePath?: string;
-    date?: string;
+    dateTime?: string;
     likesDislikes?: LikeDislikeInterface[];
     commentsDTO?: Comment[];
+    views: number;
 }
 
 export class Post implements PostInterface{
     id?: number;
     description: string;
-    username: string;
+    username: any;
     videoPath?: string;
     picturePath?: string;
-    date?: string;
+    dateTime?: string;
     likesDislikes?: LikeDislikeInterface[];
     comments?: Comment[];
+    views: number;
 
     constructor(postCfg: PostInterface){
         this.id = postCfg.id;
@@ -25,9 +27,10 @@ export class Post implements PostInterface{
         this.username = postCfg.username;
         this.videoPath = postCfg.videoPath;
         this.picturePath = postCfg.picturePath;
-        this.date = postCfg.date;
+        this.dateTime = postCfg.dateTime;
         this.likesDislikes = postCfg.likesDislikes;
         this.comments = postCfg.commentsDTO;
+        this.views = postCfg.views;
     }
 }
 

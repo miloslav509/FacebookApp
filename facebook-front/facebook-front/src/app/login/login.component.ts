@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.appService.login(this.user).subscribe((res: UserInterface) => {
       window.localStorage.setItem('username', res.username);
-      this.route.navigate(['/menu']);
+      this.route.navigate(['/home']);
     });
   }
 

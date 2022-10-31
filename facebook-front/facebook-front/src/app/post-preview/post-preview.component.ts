@@ -18,8 +18,9 @@ export class PostPreviewComponent implements OnInit {
       username: '',
       videoPath: '',
       picturePath: '',
-      date: '',
+      dateTime: '',
       likesDislikes: [],
+      views: 0
     })
   }
     

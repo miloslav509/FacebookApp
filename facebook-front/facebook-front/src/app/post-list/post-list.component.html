@@ -1,7 +1,7 @@
 <div>
-    <ul>
-        <li *ngFor="let post of posts; let i = index">
-            <app-post-preview [postInfo]="post" ></app-post-preview>
-        </li>
-    </ul>
+    <div class="row col-2 offset-10">
+        <app-change-page [pageNo]="pageNo" [totalPages]="totalPages" (setPage)="changePage($event)"></app-change-page>
+    </div>
+    
+    <app-post-preview *ngFor="let post of posts" [postInfo]="post" ></app-post-preview>
 </div>
