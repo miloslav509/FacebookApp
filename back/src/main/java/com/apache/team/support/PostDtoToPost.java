@@ -37,7 +37,7 @@ public class PostDtoToPost implements Converter<PostDTO, Post> {
 		
 		if (post != null) {
 			
-			post.setDateTime(LocalDateTime.now().toString());
+			post.setDateTime(formatDate(LocalDateTime.now().toString()));
 			post.setDescription(dto.getDescription());
 			post.setLikesDislikes(toLikeDislike.convert(dto.getLikesDislikes()));
 			post.setPicturePath(dto.getPicturePath());
@@ -47,6 +47,12 @@ public class PostDtoToPost implements Converter<PostDTO, Post> {
 		}
 		
 		return post;
+	}
+	
+	public String formatDate(String string) {
+		string = string.substring(0, 16);
+		
+		return string.replace('T', ' ');
 	}
 	
 	

@@ -9,10 +9,8 @@ import { AppService } from '../app.service';
 })
 export class CommentListComponent implements OnInit {
   
-  
   @Input() comments: Comment[];
   
-
   constructor(private appService: AppService, private route: ActivatedRoute) { 
     this.comments = [];
   }
