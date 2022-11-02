@@ -13,11 +13,14 @@ import { HomeComponent } from './home/home.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { CommentListComponent } from './comment-list/comment-list.component';
 import { CreateCommentComponent } from './create-comment/create-comment.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
+import { CommentComponent } from './comment/comment.component';
 
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },  
+  { path: 'login', component: LoginComponent },
+  {path: 'post/:id', component: PostDetailComponent},  
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
@@ -32,6 +35,8 @@ const appRoutes: Routes = [
     CreatePostComponent,
     CommentListComponent,
     CreateCommentComponent,
+    PostDetailComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,

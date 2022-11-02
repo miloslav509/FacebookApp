@@ -24,6 +24,10 @@ export class AppService {
     return this.http.get<Post[]>(this.postsUrl);
   }
 
+  getPost(id: number): Observable<Post> {
+    return this.http.get<Post>(`${this.postsUrl}/${id}`);
+  }
+
   getPostsPage(pageNo: number): Observable<any> {
     return this.http
       .get<Post[]>(

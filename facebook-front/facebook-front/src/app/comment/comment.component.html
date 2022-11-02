@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" style="float: left;">
+            <div class="card" style="border: 1px solid lightgray; ">
+                <div class="card-header">
+                    {{comment.username}} 
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                    <b><p>{{comment.description}}</p></b>
+                    </blockquote>
+                </div>
+                <div *ngIf="username === comment.username" class="card-footer">
+                    <button class="btn btn-danger" (click)="delete(comment.id)" style="float: left">Delete</button>
+                    <button *ngIf="username === comment.username" class="btn btn-secondary" [routerLink]="['/comment-update', postInfo.id, comment.id]">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -17,8 +17,5 @@
         <a class="btn btn-secondary" style="float: left; margin-left: 1%;" [routerLink]="['/post', postInfo.id]">Check post</a>
         <a *ngIf="username === postInfo.username" class="btn btn-danger" style="float: right" (click)="deletePost(postInfo.id)">Delete post</a>
     </div>
-    <div>
-        <app-comment-list ></app-comment-list>
-    </div>
 </div>
 <br>

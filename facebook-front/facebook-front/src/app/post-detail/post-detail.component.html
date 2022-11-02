@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card" style="border: 1px solid lightgray">
+            <div class="card-header">
+                <h2>{{postInfo.username}}</h2> <span style="color: lightgray">{{postInfo.dateTime}}</span>
+    
+                
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <b><p>{{postInfo.description}}</p></b>
+                
+                </blockquote>
+                
+                    <img src={{postInfo.picturePath}} style="max-height:400px ;width:100%"/>
+            </div>
+
+        <div class="card-footer">
+            <a *ngIf="username === postInfo.username" class="btn btn-secondary" style="float: left; margin-left: 1%;" [routerLink]="['/post-update', postInfo.id]">Update post</a>
+            <a *ngIf="username === postInfo.username" class="btn btn-danger" style="float: right" (click)="deletePost(id)">Delete post</a>
+        </div>
+        </div></div>
+
+        <div class="col-md-6">
+
+        <app-comment *ngFor="let c of postInfo.commentsDTO" [comment]="c"></app-comment>
+        </div>
+    </div>
+    </div>

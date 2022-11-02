@@ -25,8 +25,6 @@ export class PostPreviewComponent implements OnInit {
   }
     
   ngOnInit(): void {
-    this.username = localStorage.getItem('username');
-    console.log(this.postInfo);
   }
 
  deletePost(id: any){
